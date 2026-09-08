@@ -24,7 +24,7 @@
 
 ### PC
 
-1. 이 프로젝트를 [내려받거나](https://github.com/xp1hed/Auto-Hour-Public/archive/refs/heads/main.zip) 복제합니다.
+1. 이 프로젝트를 [내려받거나](https://github.com/xp1hed/AutoHour-Public/archive/refs/heads/main.zip) 복제합니다.
 2. 주소창에 `chrome://extensions`를 엽니다.
 3. 우측 상단의 **개발자 모드**를 켭니다.
 4. **압축해제된 확장 프로그램을 로드**를 선택합니다.
