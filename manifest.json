@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "AutoHour",
+  "version": "1.0.3",
+  "description": "Auto solver for 1hour.ai",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "tabs", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": [
+    "https://*.1hour.ai/*",
+    "https://1hour.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.1hour.ai/*",
+        "https://1hour.ai/*"
+      ],
+      "js": ["uaSettingsBridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://*.1hour.ai/*",
+        "https://1hour.ai/*"
+      ],
+      "js": ["uaBridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://*.1hour.ai/*",
+        "https://1hour.ai/*"
+      ],
+      "js": ["pageBridge.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://*.1hour.ai/*",
+        "https://1hour.ai/*"
+      ],
+      "js": ["utils.js", "flashcard.js", "quiz.js", "sentence.js", "watch.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "AutoHour",
+    "default_popup": "popup.html"
+  }
+}

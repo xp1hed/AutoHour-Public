@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoHour</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="app-header">
+        <div>
+          <h3 data-i18n="title">AutoHour</h3>
+          <div class="app-subtitle"><span data-i18n="subtitle">1hour solver</span> <span id="version"></span></div>
+        </div>
+        <div class="header-actions">
+          <div id="status" class="status">Disabled</div>
+          <button id="open-settings" class="settings-button" type="button" data-i18n-aria-label="settings" aria-label="Settings" aria-expanded="false" aria-controls="settings-panel">
+            <img src="icons/settings.svg" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <section id="settings-panel" class="compatibility-panel" aria-labelledby="compatibility-title" hidden>
+        <div id="compatibility-title" class="label" data-i18n="settings">Settings</div>
+        <div class="settings-group-label" data-i18n="language">Language</div>
+        <label class="setting-row" for="popup-language">
+          <span>
+            <strong data-i18n="displayLanguage">Display Language</strong>
+            <small data-i18n="displayLanguageHelp">Choose the popup language</small>
+          </span>
+          <select id="popup-language" aria-label="Display language">
+            <option value="ko" data-i18n="korean">한국어</option>
+            <option value="en" data-i18n="english">English</option>
+          </select>
+        </label>
+        <div class="settings-group-label" data-i18n="compatibility">Browser Compatibility</div>
+        <label class="setting-row" for="google-chrome-ua">
+          <span>
+            <strong data-i18n="googleChrome">Google Chrome</strong>
+            <small data-i18n="googleChromeHelp">Recognize Android Kiwi as Chrome</small>
+          </span>
+          <input id="google-chrome-ua" type="checkbox" />
+        </label>
+        <label class="setting-row" for="webapp-ua">
+          <span>
+            <strong data-i18n="webapp">1hour_webapp</strong>
+            <small data-i18n="webappHelp">Add the 1hour web app identifier</small>
+          </span>
+          <input id="webapp-ua" type="checkbox" />
+        </label>
+        <div class="settings-group-label" data-i18n="logs">Logs</div>
+        <label class="setting-row" for="auto-save-logs">
+          <span>
+            <strong data-i18n="autoSaveLogs">Auto Save Logs</strong>
+            <small data-i18n="autoSaveLogsHelp">Save new logs to extension storage</small>
+          </span>
+          <input id="auto-save-logs" type="checkbox" />
+        </label>
+        <label class="setting-row log-limit-row" for="log-limit">
+          <span>
+            <strong data-i18n="keepLogs">Keep Logs</strong>
+            <small data-i18n="keepLogsHelp">Automatically delete older logs</small>
+          </span>
+          <select id="log-limit" aria-label="Number of logs to keep">
+            <option value="100">100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+            <option value="1000">1,000</option>
+          </select>
+        </label>
+      </section>
+      <button id="toggle" data-i18n="enableSolver">Enable Auto Solver</button>
+
+      <div class="panel">
+        <div class="label" data-i18n="processStatus">Process Status</div>
+        <div id="process-status" class="value">idle</div>
+      </div>
+
+      <div class="panel">
+        <div class="label" data-i18n="currentQuestion">Current Question</div>
+        <div id="prompt" class="value">-</div>
+      </div>
+
+      <div class="panel">
+        <div class="label" data-i18n="recognizedAnswer">Recognized Answer</div>
+        <ul id="options"></ul>
+      </div>
+
+      <div class="panel">
+        <div class="label" data-i18n="targetAnswer">Target Answer</div>
+        <div id="target-word" class="value">-</div>
+      </div>
+
+      <div class="panel logs-panel">
+        <button id="toggle-logs" class="logs-summary" type="button" aria-expanded="false">
+          <span class="log-chevron" aria-hidden="true"></span>
+          <span class="logs-title" data-i18n="logs">Logs</span>
+          <span id="logs-count" class="logs-count">0 logs</span>
+        </button>
+        <div id="logs-content" hidden>
+          <ul id="logs" class="logs-list"></ul>
+          <div class="logs-footer">
+            <div class="logs-actions">
+              <button id="export-logs" class="log-export" type="button">
+                <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14" />
+                </svg>
+                <span data-i18n="downloadLogs">Download Logs</span>
+              </button>
+              <button id="clear-logs" class="log-clear" type="button">
+                <svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h16m-10 4v6m4-6v6M9 7l1-3h4l1 3m-9 0 1 13h10l1-13" />
+                </svg>
+                <span data-i18n="clearLogs">Clear Logs</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,418 @@
+body {
+  margin: 0;
+  width: 360px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8f9fd;
+  color: #243047;
+}
+
+.wrap {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-subtitle {
+  margin-top: 3px;
+  color: #94a0b2;
+  font-size: 11px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin: 0;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+}
+
+.status-enabled {
+  border-color: #16a34a90;
+  background: #16a34a80;
+  color: #ffffff;
+}
+
+.status-disabled {
+  border-color: #dc262690;
+  background: #dc262680;
+  color: #ffffff;
+}
+
+.status-unavailable {
+  border-color: #64748b;
+  background: #64748b;
+  color: #ffffff;
+}
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease, filter 160ms ease;
+}
+
+#toggle {
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  background: #5b43e8;
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.settings-button {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #8390a3;
+}
+
+.settings-button:hover,
+.settings-button[aria-expanded="true"] {
+  background: #edf0f6;
+  color: #5b43e8;
+  filter: none;
+}
+
+.settings-button img {
+  width: 17px;
+  height: 17px;
+  opacity: 1;
+}
+
+.compatibility-panel {
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #e8ebf0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.compatibility-panel .label {
+  margin-bottom: 4px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 38px;
+  padding: 7px 0;
+  color: #243047;
+  cursor: pointer;
+}
+
+.setting-row + .setting-row {
+  border-top: 1px solid #eef0f4;
+}
+
+.settings-group-label {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #e2e6ed;
+  color: #5b6477;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.setting-row strong,
+.setting-row small {
+  display: block;
+}
+
+.setting-row strong {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.setting-row small {
+  margin-top: 2px;
+  color: #8b97a9;
+  font-size: 10px;
+}
+
+.setting-row input {
+  width: 34px;
+  height: 18px;
+  margin: 0;
+  accent-color: #5b43e8;
+  cursor: pointer;
+}
+
+.setting-row select {
+  min-width: 72px;
+  padding: 5px 7px;
+  border: 1px solid #dce2eb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #556176;
+  font: inherit;
+  font-size: 11px;
+}
+
+.setting-row select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+  opacity: 0.55;
+}
+
+.panel {
+  margin-top: 12px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.logs-panel {
+  padding: 0;
+  border-radius: 0;
+  border-top: 1px solid #e8ebf0;
+  border-bottom: 1px solid #e8ebf0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.logs-summary {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  align-items: center;
+  width: 100%;
+  padding: 16px 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.logs-summary:hover,
+.log-export:hover,
+.log-clear:hover {
+  filter: none;
+  background: #f8fafc;
+}
+
+.log-chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #687589;
+  border-bottom: 1px solid #687589;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 160ms ease;
+}
+
+.logs-summary[aria-expanded="true"] .log-chevron {
+  transform: rotate(225deg) translate(-2px, -2px);
+}
+
+.logs-title {
+  padding-left: 4px;
+}
+
+.logs-count {
+  color: #a0aaba;
+  font-weight: 400;
+}
+
+.logs-list {
+  margin: 0;
+  padding: 8px 12px 12px;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.log-entry {
+  display: grid;
+  grid-template-columns: max-content 10px 1fr;
+  column-gap: 8px;
+  row-gap: 6px;
+  align-items: start;
+  padding: 7px 0;
+  color: #748094;
+}
+
+.log-stamp {
+  color: #9ba9bc;
+  font-variant-numeric: tabular-nums;
+}
+
+.log-marker {
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #55bf8a;
+}
+
+.log-marker.progress {
+  background: #7888dc;
+}
+
+.log-marker.error {
+  background: #ef7373;
+}
+
+.log-message {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.logs-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  border-top: 1px solid #e8ebf0;
+}
+
+.logs-actions {
+  display: flex;
+  align-items: center;
+}
+
+.log-export {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: auto;
+  height: 52px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #9eabbc;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.log-clear {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: auto;
+  height: 52px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #9eabbc;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.trash-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.download-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.logs-more {
+  padding: 0 16px;
+  color: #9aa5b5;
+  letter-spacing: 2px;
+}
+
+.label {
+  margin-bottom: 6px;
+  color: #5b6477;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.value {
+  color: #111827;
+  font-size: 12px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  min-width: 0;
+}
+
+/* 로그와 문제 문구에는 공백 없는 영문 문자열도 들어올 수 있다. */
+.panel .value,
+.panel li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.tiny {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 11px;
+}
