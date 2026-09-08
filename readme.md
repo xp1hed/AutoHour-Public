@@ -35,7 +35,7 @@
 
 ### Android
 
-1. 확장 프로그램을 [다운로드](https://github.com/xp1hed/Auto-Hour-Public/releases/download/1.0.3/AutoHour-1.0.3.crx) 받습니다.
+1. 확장 프로그램을 [다운로드](https://github.com/xp1hed/AutoHour-Public/releases/download/1.0.3/AutoHour-1.0.3.crx) 받습니다.
 2. [Kiwi Browser](https://github.com/kiwibrowser/src.next/releases/tag/14310011181)를 다운로드 받습니다. ([Galxy 기준 다운로드](https://github.com/kiwibrowser/src.next/releases/download/14310011181/com.kiwibrowser.browser-arm64-14310011181-github.apk))
 3. 우측 상단의 메뉴버튼을 누른후 확장프로그램 항목을 선택합니다.
 4. 우측 상단의 **개발자 모드**를 활성화 합니다.
@@ -46,7 +46,7 @@
 
 ### iOS
 
-1. 확장 프로그램을 [다운로드](https://github.com/xp1hed/Auto-Hour-Public/releases/download/1.0.3/AutoHour-1.0.3.crx) 받습니다.
+1. 확장 프로그램을 [다운로드](https://github.com/xp1hed/AutoHour-Public/releases/download/1.0.3/AutoHour-1.0.3.crx) 받습니다.
 2. [Orion Browser](https://apps.apple.com/us/app/orion-browser-by-kagi/id1484498200)를 다운로드 받습니다.
 3. 다운로드 받은 .crx 파일을 `나의 iPhone/Orion/Extensions`에 추가합니다.
 3. 우측 하단의 메뉴버튼을 누른후 Extensions을 눌러 + 를 눌러 `Install from File`을 합니다.
