@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AutoHour",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Auto solver for 1hour.ai",
   "icons": {
     "16": "icons/icon16.png",
