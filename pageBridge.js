@@ -319,7 +319,7 @@
       assignment?.kind ||
       '';
 
-    const wordList = props?.wordList || props?.word_list || assignment?.word_list || assignment?.wordList || props?.currentWordList || [];
+    const wordList = props?.taskWordList || props?.wordList || props?.word_list || assignment?.word_list || assignment?.wordList || props?.currentWordList || [];
     const answerList = props?.answerList || props?.answers || assignment?.answerList || assignment?.answers || [];
     const quizList = props?.quizList || props?.quiz_list || props?.currentQuizList || assignment?.quiz_list || assignment?.quizList || [];
     let choices = extractWordChoices(wordList, answerList);
