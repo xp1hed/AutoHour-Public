@@ -223,10 +223,13 @@
       raw.push(...Array.from(root.querySelectorAll('button, [role="button"], [class*="option"], [class*="choice"]')));
     }
 
-    const seen = new Set();
+    const seenNodes = new Set(); // 중복 제거
     const result = [];
 
-    for (const node of raw) {
+    for (const rawNode of raw) {
+      const node = rawNode.matches('button, input, [role="button"], [data-dd-action]')
+      ? rawNode
+      : rawNode.closest('button, input, [role="button"], [data-dd-action]');
       if (!node || !node.isConnected || !node.offsetParent) continue;
 
       // 가장 작은 텍스트 콘텐츠 추출
@@ -262,24 +265,20 @@
         continue;
       }
 
-      // clickable 요소만
-      const className = typeof node.className === 'string' ? node.className : '';
+      // clickable 요소만 -> button/role/data-dd-action
       const isClickable =
         node.tagName === 'BUTTON' ||
         node.tagName === 'INPUT' ||
-        node.role === 'button' ||
-        className.includes('btn') ||
-        className.includes('choice') ||
-        node.onclick ||
-        node.style?.cursor === 'pointer';
+        node.getAttribute('role') === 'button' ||
+        node.hasAttribute('data-dd-action') ||
+        typeof node.onclick === 'function';
 
       if (!isClickable) {
         continue;
       }
 
-      const key = `${label}|${className}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
+      if (seenNodes.has(node)) continue;
+      seenNodes.add(node);
       result.push(node);
     }
 
