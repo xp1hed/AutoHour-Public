@@ -10,8 +10,12 @@
   let lastClickAt = 0;
   let completed = false;
 
+  function hasWordChoiceSurface() {
+    return Boolean(document.querySelector('[class*="assignment-word-test"]') && document.querySelector('[data-dd-action="hw__hw_word_word-choice__test"]'));
+  }
+
   function isFlashcardMode() {
-    return new URLSearchParams(location.search).get('mode') === FLASHCARD_MODE;
+    return new URLSearchParams(location.search).get('mode') === FLASHCARD_MODE && !hasWordChoiceSurface();
   }
 
   function isDoneScreen() {
